@@ -1,11 +1,10 @@
 const mongoose = require('mongoose')
 
-
 const userSchema = new mongoose.Schema({
     name: {
-        type: String, 
+        type: String,
         require: true
-    }, 
+    },
     email: {
         type: String,
         require: true,
@@ -15,16 +14,18 @@ const userSchema = new mongoose.Schema({
         type: String,
         require: true
     },
-    lastLogin: {
+    lastLoggedIn: {
         type: Date,
         default: Date.now()
     },
-    verificationToken: String,
-    verificationTokenExpiresAt: Date,
+    isVerified: {
+        type: Boolean,
+    },
     passwordResetToken: String,
-    passwordResetTokenExpiresAt: Date,   
+    passwordResetTokenExpiresAt: Date
 }, {timestamps: true})
 
-const User = mongoose.model('user', userSchema)
+
+const User = mongoose.model('userdata', userSchema)
 
 module.exports = User
