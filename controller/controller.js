@@ -1,7 +1,9 @@
 const User = require('../model/model.js')
 const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 
+require('dotenv').config()
 
 const Signup = async (req, res) => {
    const {name, email, password} = req.body
@@ -50,7 +52,7 @@ const Signup = async (req, res) => {
 
       await createUser.save()
 
-      return res.json({success: true, message: 'Account created successfully!'})
+      return res.json({success: true, message: 'Account created successfully!' })
       
       
    } catch (error) {
@@ -91,12 +93,18 @@ const Signin = async (req, res) => {
          return res.json({success: false, passwordError: 'Password is incorrect!'})
       }
 
+      const token = jwt.sign(
+      { id: userEmail._id, email: userEmail.email },
+      process.env.JWT_SECRET,
+      { expiresIn: '365d' }
+      )
+
 
       isVerified = true,
       lastLoggedIn = Date.now() 
       await userEmail.save()
 
-      return res.json({success: true, message: 'Login successful...'})
+      return res.json({success: true, message: 'Login successful...', token})
 
    } catch (error) {
       return res.json({success: false, error: `Something went wrong: ${error}`})
