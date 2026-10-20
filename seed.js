@@ -9,13 +9,7 @@ const courseModel = require ('./model/courseModel')
 dotenv.config()
 
 const course = [
-
-    {id: 1, name: 'Jane Doe', image: '', course: 'Marketing Graduate',    testimony: '"This platform transformed my learning experience. The personalized courses and expert tutoring helped me gain the skills I needed to excel in my career. The supportive community and flexible scheduling made it easy to balance my studies with my job."',      type: 'testimony'},
-    {id: 2, name: 'Jane Doe', image: '', course: 'Marketing Graduate',    testimony: '"This platform transformed my learning experience. The personalized courses and expert tutoring helped me gain the skills I needed to excel in my career. The supportive community and flexible scheduling made it easy to balance my studies with my job."',        type: 'testimony'},
-    {id: 3, name: 'Jane Doe', image: '', course: 'Marketing Graduate',    testimony: '"This platform transformed my learning experience. The personalized courses and expert tutoring helped me gain the skills I needed to excel in my career. The supportive community and flexible scheduling made it easy to balance my studies with my job."',            type: 'testimony'},
     
-
-
 
     {id: 1, courseTitle: 'Soft skill',      type: 'button'},
     {id: 2, courseTitle: 'Business',        type: 'button'},
@@ -27,6 +21,21 @@ const course = [
     {id: 7, courseTitle: 'Arts',        type: 'button'},
     {id: 8, courseTitle: 'Science',     type: 'button'},
 
+    //popularCourses
+    {id: 1, courseTitle: 'UI/UX Design Fundamentals',                   text: 'Intermediate',   image: 'ui_ux.png',                 type: 'popularCourses'},
+    {id: 2, courseTitle: 'Getting Started with Python',                 text: 'Beginner',       image: 'gettingStatedPython.jpg',   type: 'popularCourses'},
+
+    //topRatedCourses
+    {id: 1, courseTitle: 'Introduction to Python Professional Course',  text: 'Course',         image: 'introToPython.jpg',     type: 'topRated'},
+    {id: 2, courseTitle: 'UI/UX Design Principles',                     text: 'Course',         image: 'uiuxPrinciples.jpg',    type: 'topRated'},
+
+    //certificateCourse
+    {id: 1, courseTitle: 'Professional Graphic Design',                 text: 'Certificate',    image: 'professionalGrapicDesigner.jpg',    type: 'certificateCourse'},
+    {id: 2, courseTitle: 'Digital Marketing',                           text: 'Certificate',    image: 'digitalMarketing.jpg',              type: 'certificateCourse'},
+
+    //newCourse
+    {id: 1, courseTitle: 'Introduction to Artificial Intelligence',     text: 'Course',         image: 'IntroToAI.jpg',     type: 'newCourse'},
+    {id: 2, courseTitle: 'Advanced Healthcare Management',              text: 'Course',         image: 'AdvancedHM.jpg',    type: 'newCourse'},
 
 
     {id: 1, courseTitle: 'Figma',           type: 'search'},

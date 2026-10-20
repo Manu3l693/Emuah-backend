@@ -13,6 +13,42 @@ router.get('/exploreCourses', async (req, res) => {
     }
 })
 
+router.get('/popularCourses', async (req, res) => {
+    try {
+        const course = await Course.find({type:'popularCourses'})
+        res.json({success: true, course: course})
+    } catch (error) {
+        res.json({course: error})
+    }
+})
+
+router.get('/topRated', async (req, res) => {
+    try {
+        const course = await Course.find({type:'topRated'})
+        res.json({success: true, course: course})
+    } catch (error) {
+        res.json({course: error})
+    }
+})
+
+router.get('/certificationCourse', async (req, res) => {
+    try {
+        const course = await Course.find({type:'certificateCourse'})
+        res.json({success: true, course: course})
+    } catch (error) {
+        res.json({course: error})
+    }
+})
+
+router.get('/newCourse', async (req, res) => {
+    try {
+        const course = await Course.find({type:'newCourse'})
+        res.json({success: true, course: course})
+    } catch (error) {
+        res.json({course: error})
+    }
+})
+
 router.get('/searchedCourses', async (req, res) => {
     try {
         const course = await Course.find({type: 'search'})
